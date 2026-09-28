@@ -112,7 +112,7 @@ Chrome will warn about the certificate — it is self-signed on localhost. Proce
 
 The endpoint is the host and port only. WSO2 appends the rest of the path.
 
-![Creating the API](images/02-create-api.png)
+![Creating the API](images/create-api.png)
 
 ### 3. Deploy and publish
 
@@ -121,7 +121,7 @@ These are two separate actions and both are required:
 - **Deployments → Deploy** puts the API onto the gateway runtime and creates a revision
 - **Lifecycle → Publish** makes it discoverable in the Developer Portal
 
-![Published](images/04-published.png)
+![Published](images/published.png)
 
 ### 4. Subscribe and get a token
 
@@ -149,7 +149,7 @@ Same response as calling port 8080 directly, but the request now travels:
 
 `curl → gateway :8243 → OAuth2 validation → user-service :8080 → back`
 
-![Working through the gateway](images/06-gateway-success.png)
+![Working through the gateway](images/gateway-success.png)
 
 ---
 
@@ -170,7 +170,7 @@ The built-in business plans start at Bronze (1000 requests/minute), which is sen
 
 Then in the Publisher: **Portal Configurations → Subscriptions** → tick the new plan, untick Unlimited, save, and deploy a new revision.
 
-![Business plans](images/07-business-plans.png)
+![Business plans](images/business-plans.png)
 
 > **The step that is easy to miss:** attaching a plan to an API does **not** move an existing subscriber onto it. My `DefaultApplication` had subscribed while Unlimited was the only option and stayed there, so ten test requests all sailed through.
 >
@@ -196,7 +196,7 @@ Five successes, then:
 
 The gateway rejects the request before it reaches Spring Boot, and `nextAccessTime` tells a well-behaved client exactly when to retry.
 
-![Throttled](images/08-throttled.png)
+![Throttled](images/throttled.png)
 
 ---
 
